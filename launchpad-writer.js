@@ -6,7 +6,7 @@ export default (subclass) => class LaunchpadWriter extends subclass {
 
         this.intervalLength = 300;
     }
-    drawLetter(letter, offset = 0) {
+    drawLetter(letter, offset = 0, color = this.defaultColor) {
         if (!letter) return;
 
         for (let row = 0; row < 5; row++) {
@@ -15,7 +15,7 @@ export default (subclass) => class LaunchpadWriter extends subclass {
                 if (col + offset > 7) continue;
 
                 const val = letter[row * 4 + col];
-                this.setLED(row, col + offset, val ? Launchpad.Colors.AMBER : Launchpad.Colors.OFF);
+                this.setLED(row, col + offset, val ? color : Launchpad.Colors.OFF);
             }
         }
     }
