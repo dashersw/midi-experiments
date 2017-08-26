@@ -1,0 +1,72 @@
+* {
+    position: relative;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Avenir Next';
+    padding: 2vmin;
+    background: #333;
+}
+
+#container {
+    width: 90vmin;
+    height: 90vmin;
+    background: #000;
+    padding: 1vmin;
+    margin: 0 auto;
+    border-radius: 20px;
+}
+
+#container cell {
+    display: block;
+    width: 9vmin;
+    height: 9vmin;
+    float: left;
+    margin: 1vmin;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#prompt {
+    background: #666;
+    color: #fff;
+    height: 3vmin;
+    width: 20vmin;
+    font-size: 24px;
+    line-height: 3vmin;
+    text-align: center;
+    border-radius: 5px;
+    margin: 2vmin auto;
+    cursor: pointer;
+}
+
+.color_11, .color_56, .color_58, .color_59 {
+    background-image: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.3) 80%);
+    box-shadow: 0 0 300px;
+}
+
+.color_12 { /* gray */
+    background-color: #444;
+    color: #444;
+}
+
+.color_59 { /* amber */
+    background-color: #fb0;
+    color: rgba(255, 204, 0, 0.6);
+}
+
+.color_58 { /* yellow */
+    background-color: #dd0;
+    color: #dd0;
+}
+
+.color_56 { /* green */
+    background-color: #9d0;
+    color: #9d0;
+}
+
+.color_11 { /* red */
+    background-color: #d00;
+    color: #d00;
+}
