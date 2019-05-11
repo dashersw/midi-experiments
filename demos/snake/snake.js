@@ -16,18 +16,14 @@ class SnakeGame {
 
         this.startGame();
 
-        const origOnMidiMessage = lp.onMidiMessage;
+        const origOnMidiMessage = lp.onMidiMessage.bind(lp);
 
         lp.onMidiMessage = ({type, data}) => {
-            if (data[0] != 176) return origOnMidiMessage.call(lp, {type, data});
-            if (data[1] != 106 && data[1] != 107) return;
+            if (data[0] != 176) return origOnMidiMessage({type, data});
+            if (data[1] != SnakeGame.Moves.LEFT && data[1] != SnakeGame.Moves.RIGHT) return;
             if (data[2] == 0) return;
 
             this.newDirection = SnakeGame.DirectionsMap[data[1]][this.direction];
-
-            // this.directionTile && lp.setLED(Math.floor(this.directionTile / 8), this.directionTile % 8, Launchpad.Colors.OFF);
-            // this.directionTile = this.player[0] + this.newDirection;
-            // lp.setLED(Math.floor(this.directionTile / 8), this.directionTile % 8, Launchpad.Colors.RED);
         }
     }
 
@@ -102,8 +98,8 @@ SnakeGame.Directions = {
 }
 
 SnakeGame.Moves = {
-    LEFT: 106,
-    RIGHT: 107,
+    LEFT: 104,
+    RIGHT: 105,
 }
 
 SnakeGame.Colors = {
