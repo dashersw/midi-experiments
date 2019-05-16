@@ -37,6 +37,7 @@ export default class ImageEditor {
     }
 
     onData({ data }) {
+        console.log(data)
         if (data[1] == 7)
             document.body.style.fontSize = data[2] / 127 + 0.3 + 'em';
 
@@ -62,8 +63,8 @@ export default class ImageEditor {
         const transformNames = Object.keys(this.transforms);
         const transformVal = `translate3d(${this.transforms.x}px, ${this.transforms.y}px, ${this.transforms.z}px) rotateX(${this.transforms.rotateX}deg) rotateY(${this.transforms.rotateY}deg) rotateZ(${this.transforms.rotateZ}deg) scale(${this.transforms.scale})`;
 
-        console.log(filterVal);
-        console.log(transformVal);
+        console.log('filter', filterVal);
+        console.log('transform', transformVal);
 
         this.image.style.filter = filterVal;
         this.image.style.transform = transformVal;
