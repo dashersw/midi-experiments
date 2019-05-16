@@ -68,6 +68,7 @@ function MIDIMessageEventHandler(event) {
 }
 
 function frequencyFromNoteNumber(note) {
+    if (note == 50) note = 62
     return 440 * Math.pow(2, (note - 69) / 12);
 }
 
