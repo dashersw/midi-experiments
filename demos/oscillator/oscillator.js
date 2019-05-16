@@ -12,7 +12,7 @@ const portamento = 0.05;  // portamento/glide speed
 let activeNotes = []; // the stack of actively-pressed keys
 let lp = null; // Launchpad instance
 
-window.addEventListener('load', () => {
+window.addEventListener('keypress', () => {
     // patch up prefixes
     window.AudioContext = window.AudioContext || window.webkitAudioContext;
 
@@ -45,6 +45,7 @@ function onMIDIInit(midi) {
         alert("No MIDI input devices present. You're gonna have a bad time.");
     else
         lp = new Launchpad();
+    context.resume();
 }
 
 function onMIDIReject(err) {
